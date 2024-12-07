@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Diagnostic Reports</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Diagnostic Reports</h1>
+        <button onclick="window.location.href = 'addDiagnosticReport.html';" class="btn btn-primary mb-4">Add New Report</button>
+        
+        <ul id="report-list" class="list-group">
+            <!-- Report items will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script>
+        fetch('http://localhost:5001/api/diagnostic-reports')
+            .then(response => response.json())
+            .then(data => {
+                const reportList = document.getElementById('report-list');
+                if (data.length === 0) {
+                    reportList.innerHTML = '<li class="list-group-item">No reports found.</li>';
+                } else {
+                    data.forEach(report => {
+                        const li = document.createElement('li');
+                        li.classList.add('list-group-item', 'report-item');
+                        li.innerHTML = `
+                            <div>
+                                <strong>Patient ID:</strong> ${report.patientId} <br>
+                                <strong>Report Date:</strong> ${report.reportDate} <br>
+                                <strong>Diagnosis:</strong> ${report.diagnosis} <br>
+                                <strong>Doctor's Name:</strong> ${report.doctorName} <br>
+                                <a href="http://localhost:5000/uploads/${report.document}" target="_blank">View Document</a>
+                            </div>
+                            <button onclick="deleteReport(${report.id})" class="btn btn-danger btn-sm float-right">Delete</button>
+                        `;
+                        reportList.appendChild(li);
+                    });
+                }
+            })
+            .catch(error => console.error('Error fetching reports:', error));
+
+        function deleteReport(id) {
+            fetch(`http://localhost:5001/api/diagnostic-reports/${id}`, { method: 'DELETE' })
+            .then(response => {
+                if (response.status === 204) {
+                    alert('Report deleted');
+                    window.location.reload(); // Refresh the page
+                } else {
+                    alert('Failed to delete report');
+                }
+            })
+            .catch(error => {
+                alert('Error deleting report');
+                console.error('Error deleting report:', error);
+            });
+        }
+    </script>
+</body>
+</html>

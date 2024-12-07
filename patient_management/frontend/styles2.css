@@ -1,0 +1,128 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700); 
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700);
+
+body { 
+    color: #333; 
+    font-size: 16px; 
+    font-family: 'Raleway', sans-serif; 
+    line-height: 1.6; 
+} 
+
+.container { 
+    max-width: 800px; 
+    margin: auto; 
+} 
+
+a { 
+    color: #007BFF; 
+    text-decoration: none; 
+    transition: all .3s ease; 
+} 
+
+a:hover { 
+    color: #0056b3; 
+} 
+
+h1 { 
+    font-size: 28px; 
+    color: #222; 
+    margin-bottom: 20px; 
+} 
+
+.list-group-item { 
+    border: 1px solid #e1e1e1; 
+    margin-bottom: 10px; 
+    padding: 15px; 
+} 
+
+.btn-warning { 
+    background-color: #ffc107; 
+    border-color: #ffc107; 
+} 
+
+.btn-danger { 
+    background-color: #dc3545; 
+    border-color: #dc3545; 
+} 
+
+.btn-custom { 
+    background-color: #28a745; 
+    border: none; 
+    color: white; 
+    padding: 12px 20px; 
+    font-size: 16px; 
+    transition: background-color .3s; 
+} 
+
+.btn-custom:hover { 
+    background-color: #218838; 
+} 
+
+.header_style_01 { 
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 15px 30px; 
+} 
+
+.header_style_01 .navbar-default { 
+    border: 1px solid #e1e1e1; 
+} 
+
+.header_style_01 .navbar-default .navbar-nav > li > a { 
+    color: #333; 
+} 
+
+.header_style_01 .navbar-default .navbar-nav > li:hover a { 
+    color: #007BFF; 
+} 
+
+.section { 
+    padding: 80px 0; 
+} 
+
+.section.wb { 
+    background-color: #f8f9fa; 
+} 
+
+.section.db { 
+    background-color: #343a40; 
+} 
+
+.pricing-table { 
+    background: #ffffff; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+} 
+
+.pricing-table-header h2 { 
+    font-size: 28px; 
+} 
+
+.pricing-table-header h3 { 
+    font-size: 16px; 
+    color: #6c757d; 
+} 
+
+.btn-warning:hover { 
+    background-color: #e0a800; 
+} 
+
+.btn-danger:hover { 
+    background-color: #c82333; 
+} 
+
+#patient-list { 
+    margin-top: 20px; 
+} 
+
+.alert { 
+    margin-top: 20px; 
+} 
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px; 
+    }
+    .btn-custom, .btn-warning, .btn-danger {
+        width: 100%; 
+        margin-bottom: 10px; 
+    }
+}

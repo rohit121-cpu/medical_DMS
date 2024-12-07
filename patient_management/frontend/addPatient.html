@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Patient</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Add Patient</h1>
+        <form id="add-patient-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="medicalHistory">Medical History:</label>
+                <textarea id="medicalHistory" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="diagnosisReason">Diagnosis Reason:</label>
+                <input type="text" id="diagnosisReason" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Patient</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('add-patient-form');
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            const patientData = {
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                medicalHistory: document.getElementById('medicalHistory').value,
+                diagnosisReason: document.getElementById('diagnosisReason').value
+            };
+            fetch('http://localhost:5000/api/patients', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(patientData)
+            })
+                .then(response => response.json())
+                .then(() => {
+                    alert('Patient added successfully!');
+                    window.location.href = 'patients.html';
+                })
+                .catch(error => console.error('Error adding patient:', error));
+        });
+    </script>
+</body>
+</html>

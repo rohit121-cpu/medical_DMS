@@ -1,0 +1,99 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    background-color: #B3E5FC;
+    font-family: Arial, sans-serif;
+    color: #0288D1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #81D4FA;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Header */
+h1 {
+    color: #000000;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #0288D1;
+    border-color: #0288D1;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #29B6F6;
+    border-color: #29B6F6;
+}
+
+/* List Group */
+.list-group-item {
+    background-color: #E1F5FE;
+    color: #0288D1;
+    border: 1px solid #81D4FA;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.list-group-item:hover {
+    transform: scale(1.02);
+    background-color: #B3E5FC;
+}
+
+.report-item div {
+    margin-bottom: 10px;
+}
+
+.report-item a {
+    color: #0288D1;
+    text-decoration: underline;
+}
+
+.report-item a:hover {
+    color: #29B6F6;
+}
+
+/* Danger Button */
+.btn-danger {
+    background-color: #D32F2F;
+    border-color: #D32F2F;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #F44336;
+    border-color: #F44336;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+    }
+
+    .list-group-item {
+        font-size: 14px;
+    }
+}

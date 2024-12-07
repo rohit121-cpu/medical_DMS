@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Scheduled Appointments</h1>
+        <button onclick="window.location.href = 'addAppointment.html';" class="btn">Add New Appointment</button>
+        <ul id="appointment-list">
+            <!-- Appointment items will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script>
+        fetch('http://localhost:5001/api/appointments')
+            .then(response => response.json())
+            .then(data => {
+                const appointmentList = document.getElementById('appointment-list');
+                if (data.length === 0) {
+                    appointmentList.innerHTML = '<li>No appointments found.</li>';
+                } else {
+                    data.forEach(appointment => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <div>
+                                <strong>Name:</strong> ${appointment.name} <br>
+                                <strong>Age:</strong> ${appointment.age} <br>
+                                <strong>Date:</strong> ${appointment.appointmentDate} <br>
+                                <strong>Reason:</strong> ${appointment.reason}
+                            </div>
+                            <button onclick="deleteAppointment(${appointment.id})">Delete</button>
+                        `;
+                        appointmentList.appendChild(li);
+                    });
+                }
+            })
+            .catch(error => console.error('Error:', error));
+
+        function deleteAppointment(id) {
+            fetch(`http://localhost:5001/api/appointments/${id}`, {
+                method: 'DELETE',
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Appointment deleted successfully!');
+                        window.location.reload();
+                    } else {
+                        alert('Failed to delete appointment.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

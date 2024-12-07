@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Diagnostic Report</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Add Diagnostic Report</h1>
+        <form id="add-diagnostic-report-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="patientId">Patient ID:</label>
+                <input type="text" id="patientId" class="form-control" name="patientId" required>
+            </div>
+            <div class="form-group">
+                <label for="reportDate">Report Date:</label>
+                <input type="date" id="reportDate" class="form-control" name="reportDate" required>
+            </div>
+            <div class="form-group">
+                <label for="diagnosis">Diagnosis:</label>
+                <textarea id="diagnosis" class="form-control" name="diagnosis" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="doctorName">Doctor's Name:</label>
+                <input type="text" id="doctorName" class="form-control" name="doctorName" required>
+            </div>
+            <div class="form-group">
+                <label for="document">Upload Document:</label>
+                <input type="file" id="document" class="form-control-file" name="document" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Report</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('add-diagnostic-report-form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            fetch('http://localhost:5001/api/diagnostic-reports', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Report added!');
+                window.location.href = 'viewDiagnosticsReport.html'; // Redirect to the report list
+            })
+            .catch(error => {
+                alert('Error adding report');
+                console.error(error);
+            });
+        });
+    </script>
+</body>
+</html>

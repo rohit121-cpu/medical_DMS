@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700); 
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700);
+
+body { 
+    color: #333; 
+    font-size: 16px; 
+    font-family: 'Raleway', sans-serif; 
+    line-height: 1.6; 
+    background-color: #B3E5FC; 
+} 
+
+.container { 
+    max-width: 800px; 
+    margin: auto; 
+} 
+
+a { 
+    color: #0288D1; 
+    text-decoration: none; 
+    transition: all .3s ease; 
+} 
+
+a:hover { 
+    color: #29B6F6; 
+} 
+
+h1 { 
+    font-size: 28px; 
+    color: #222; 
+    margin-bottom: 20px; 
+} 
+
+header, footer {
+    background-color: #0288D1;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+header {
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 5px solid #4FC3F7;
+}
+
+footer {
+    font-size: 14px;
+    margin-top: 20px;
+    border-top: 5px solid #4FC3F7;
+}
+
+.list-group-item { 
+    border: 1px solid #81D4FA; 
+    background-color: #E3F2FD; 
+    margin-bottom: 10px; 
+    padding: 15px; 
+    border-radius: 5px;
+} 
+
+.list-group-item:hover { 
+    background-color: #B3E5FC; 
+}
+
+.btn-warning { 
+    background-color: #4FC3F7; 
+    border-color: #4FC3F7; 
+    color: white; 
+} 
+
+.btn-danger { 
+    background-color: #0288D1; 
+    border-color: #0288D1; 
+    color: white; 
+} 
+
+.btn-warning:hover { 
+    background-color: #29B6F6; 
+} 
+
+.btn-danger:hover { 
+    background-color: #81D4FA; 
+} 
+
+#patient-list { 
+    margin-top: 20px; 
+} 
+
+.alert { 
+    margin-top: 20px; 
+    background-color: #81D4FA; 
+    color: #222; 
+    border-radius: 5px; 
+    border: 1px solid #4FC3F7; 
+} 
+
+footer a { 
+    color: #E1F5FE; 
+} 
+
+footer a:hover { 
+    color: #B3E5FC; 
+} 
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px; 
+    }
+    .btn-warning, .btn-danger {
+        width: 100%; 
+        margin-bottom: 10px; 
+    }
+}

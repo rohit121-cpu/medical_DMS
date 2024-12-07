@@ -1,0 +1,314 @@
+* {
+    margin: 0px;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #16423C;
+    height: 80px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logo {
+    background-image: url("HealthyEats.jpg");
+    width: 110px;
+    height: 80px;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.name {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar2 {
+    background-color: #6A9C89;
+    height: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.heroimg {
+    background-image: url("Healthyfood.jpeg");
+    height: 300px;
+    background-size: cover;
+    opacity: 70%;
+}
+
+.navhero {
+    display: flex;
+    background-color: #6A9C89;
+    height: 50px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navhero2 {
+    height: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input {
+    width: 600px;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.icon2 {
+    width: 30px;
+    height: 30px;
+    background-color: #16423C;
+    color: #6A9C89;
+    align-items:center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+}
+
+.box1, .box2, .box3, .box4 {
+    height: 400px;
+    width: 300px;
+    border: 2px solid black;
+}
+
+.boximage{
+    height: 300px ;
+    width:250px;
+    background-size:contain;
+    background-repeat: no-repeat;
+    align-items: center;
+    text-align: center;
+    padding:20px,0px,20px;
+    margin-top:0.5rem;
+    
+
+}
+.boxcont{
+    margin-left: 25px;
+    margin-right: 10px;
+    align-items: center;
+    padding-top: 10px;
+}
+
+/* Added sections */
+#food-menu, #meal-customization, #nutrition-values, #rewards {
+    padding: 30px;
+    background-color: #f4f4f4;
+    margin: 20px auto;
+    border-radius: 8px;
+    width: 90%;
+}
+
+#food-menu h2, #meal-customization h2, #nutrition-values h2, #rewards h2 {
+    text-align: center;
+    color: #16423C;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.menu-item, .nutrition-item, .rewards-tracker {
+    background-color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item h3, .nutrition-item h3 {
+    color: #6A9C89;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.menu-item p, .nutrition-item p, .rewards p {
+    color: #333;
+    font-size: 16px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label, form select {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #16423C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #6A9C89;
+}
+
+.rewards-tracker p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.rewards-tracker button {
+    background-color: #16423C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rewards-tracker button:hover {
+    background-color: #6A9C89;
+}
+.foot{
+    background-color:#16423C ;
+    text-align: center;
+    color: white;
+    height: 30px;
+    padding:20px
+}
+
+.add-to-cart{
+    margin-top: 5px;
+    margin-left: 1200px;
+    background-color: #6A9C89;
+    color: white;
+    border-radius: 5px;
+    font-size: medium;
+    font-style: bold;
+    
+}
+.customize-meal{
+    margin-top: 5px;
+    margin-left: 1200px;
+    background-color: #6A9C89;
+    color: white;
+    border-radius: 5px;
+    font-size: medium;
+    font-style: bold;
+}
+
+.menu-item button:hover{
+    background-color: #16423C;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+
+section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.special-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.special-item:last-child {
+    border-bottom: none;
+}
+
+
+.btn {
+    background-color: #6A9C89;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+}
+
+.btn:hover {
+    background-color: #6A9C89;
+}
+
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.events-header {
+    background-color: #16423C;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+}
+
+#upcoming-events-section {
+    padding: 20px;
+}
+
+.event-card-unique {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-title {
+    color: #6A9C89;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.footer-unique {
+    text-align: center;
+    padding: 15px;
+    background-color: #16423C;
+    color: white;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Appointment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Appointment</h1>
+        <form id="appointmentForm">
+            <label for="name">Patient Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" id="appointmentDate" name="appointmentDate" required>
+            <label for="reason">Reason:</label>
+            <textarea id="reason" name="reason" required></textarea>
+            <button type="submit">Add Appointment</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const appointment = Object.fromEntries(formData.entries());
+
+            fetch('http://localhost:5001/api/appointments', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(appointment),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Appointment added successfully!');
+                        window.location.href = 'appointments.html';
+                    } else {
+                        alert('Failed to add appointment.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

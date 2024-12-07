@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div>Medical Diagnostics Management System</div>
+    </header>
+    
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Patient List</h1>
+        <div class="text-center mb-4">
+            <button onclick="window.location.href = 'addPatient.html';" class="btn btn-primary">Add New Patient</button>
+        </div>
+        <ul id="patient-list" class="list-group"></ul>
+    </div>
+
+    <footer>
+        <div>© 2024 Medical Diagnostics Management System. All rights reserved.</div>
+    </footer>
+    
+    <script>
+        const fetchPatients = () => {
+            fetch('http://localhost:5000/api/patients')
+                .then(response => response.json())
+                .then(data => {
+                    const patientList = document.getElementById('patient-list');
+                    patientList.innerHTML = '';
+                    if (data.length === 0) {
+                        patientList.innerHTML = '<li class="list-group-item">No patients found.</li>';
+                    } else {
+                        data.forEach(patient => {
+                            const li = document.createElement('li');
+                            li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start');
+                            li.innerHTML = `
+                                <div>
+                                    <strong>Name:</strong> ${patient.name}<br>
+                                    <strong>Age:</strong> ${patient.age}<br>
+                                    <strong>Medical History:</strong> ${patient.medicalHistory}<br>
+                                    <strong>Diagnosis Reason:</strong> ${patient.diagnosisReason || 'N/A'}
+                                </div>
+                                <div>
+                                    <a href="editPatient.html?id=${patient.id}" class="btn btn-warning btn-sm mr-2">Edit</a>
+
+                                    <button onclick="deletePatient(${patient.id})" class="btn btn-danger btn-sm">Delete</button>
+                                </div>
+                            `;
+                            patientList.appendChild(li);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error fetching patients:', error));
+        };
+
+        const deletePatient = id => {
+            fetch(`http://localhost:5000/api/patients/${id}`, { method: 'DELETE' })
+                .then(response => {
+                    if (response.status === 204) {
+                        alert('Patient deleted');
+                        fetchPatients();
+                    } else {
+                        alert('Failed to delete patient');
+                    }
+                })
+                .catch(error => console.error('Error deleting patient:', error));
+        };
+
+        fetchPatients();
+    </script>
+</body>
+</html>
